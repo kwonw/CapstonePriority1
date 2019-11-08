@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane prefHeight="234.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="tbData" editable="true" layoutX="147.0" layoutY="78.0" prefHeight="138.0" prefWidth="885.0" style="-fx-background-color: black; text-color: white;">
+               <columns>
+                  <TableColumn fx:id="season" prefWidth="59.0" text="Season" />
+                  <TableColumn fx:id="GP" prefWidth="59.0" text="GP" />
+                  <TableColumn fx:id="G" prefWidth="59.0" text="G" />
+                  <TableColumn fx:id="A" prefWidth="59.0" text="A" />
+                  <TableColumn fx:id="PTS" prefWidth="59.0" text="PTS" />
+                  <TableColumn fx:id="plusMinus" prefWidth="59.0" text="+/-" />
+                  <TableColumn fx:id="SOG" prefWidth="59.0" text="SOG" />
+                  <TableColumn fx:id="percent" prefWidth="59.0" text="\%" />
+                  <TableColumn fx:id="PPG" prefWidth="59.0" text="PPG" />
+                  <TableColumn fx:id="PPA" prefWidth="59.0" text="PPA" />
+                  <TableColumn fx:id="SHG" prefWidth="59.0" text="SHG" />
+                  <TableColumn fx:id="GWG" prefWidth="59.0" text="GWG" />
+                  <TableColumn fx:id="GTG" prefWidth="59.0" text="GTG" />
+                  <TableColumn fx:id="TOI" prefWidth="59.0" text="TOI/G" />
+                  <TableColumn fx:id="PROD" prefWidth="59.0" text="PROD" />
+               </columns>
+            </TableView>
+
+            <ImageView fitHeight="247.0" fitWidth="147.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/Mahalak.jpg" />
+               </image>
+            </ImageView>
+            <JFXTextArea fx:id="playerInfo" layoutX="147.0" prefHeight="72.0" prefWidth="353.0" style="-fx-background-color: black; -fx-text-fill: white;" text="#6 Alec Mahalak&#9;Defense&#9;  Height: 5'9&quot;&#9;  Weight: 161 Lbs&#9;Born: 9/14/98&#9;  Monroe, MI" unFocusColor="#ffffff00" />
+            <JFXButton buttonType="RAISED" layoutX="1490.0" layoutY="2.0" onAction="#PlayerHomeButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="HOME" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1490.0" layoutY="50.0" onAction="#PlayerLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1456.0" layoutY="148.0" onAction="#OpenGameButtonClicked" prefHeight="40.0" prefWidth="122.0" style="-fx-background-color: #C42134;" text="Open Game" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="1171.0" layoutY="21.0" prefHeight="25.0" prefWidth="260.0" text="Games List" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ListView fx:id="GameList" layoutX="1172.0" layoutY="54.0" prefHeight="178.0" prefWidth="258.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="688.0" prefWidth="1600.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane layoutX="14.0" layoutY="24.0" prefHeight="618.0" prefWidth="1411.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Clips">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="1093.0">
+                           <children>
+                              <ImageView fitHeight="549.0" fitWidth="1157.0" layoutX="36.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/rink.png" />
+                                 </image>
+                              </ImageView>
+                              <Canvas fx:id="RinkCanvas" height="549.0" layoutX="36.0" layoutY="13.0" onMouseDragged="#CanvasMouseDragged" onMousePressed="#CanvasMousePressed" width="1095.0" />
+                              <ListView fx:id="ClipList" layoutX="1146.0" layoutY="64.0" onMouseReleased="#ClipListSelectionChanged" prefHeight="459.0" prefWidth="254.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Net Chart/Zone Chart">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TabPane layoutX="14.0" layoutY="1.0" prefHeight="578.0" prefWidth="614.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab onSelectionChanged="#NetChartHomeSelected" text="Miami">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="622.0">
+                                             <children>
+                                                <ImageView fitHeight="537.0" fitWidth="724.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/half_rink.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <Canvas fx:id="HomeSCCanvas" height="537.0" onMousePressed="#drawCircle" width="611.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab onSelectionChanged="#NetChartAwaySelected" text="Opponent">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="537.0" fitWidth="724.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/half_rink.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <Canvas fx:id="AwaySCCanvas" height="537.0" onMousePressed="#drawCircle" width="611.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                              <TabPane layoutX="628.0" prefHeight="510.0" prefWidth="817.0" tabClosingPolicy="UNAVAILABLE">
+                                 <tabs>
+                                    <Tab onSelectionChanged="#NetChartHomeSelected" text="Miami">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="448.0" fitWidth="761.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/NetChart.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <Canvas fx:id="HomeNetChartCanvas" height="448.0" layoutX="43.0" layoutY="12.0" onMousePressed="#drawCircle" width="731.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab onSelectionChanged="#NetChartAwaySelected" text="Opponent">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <ImageView fitHeight="448.0" fitWidth="761.0" layoutX="43.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../Images/NetChart.jpg" />
+                                                   </image>
+                                                </ImageView>
+                                                <Canvas fx:id="AwayNetChartCanvas" height="448.0" layoutX="43.0" layoutY="12.0" onMousePressed="#drawCircle" width="731.0" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                 </tabs>
+                              </TabPane>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

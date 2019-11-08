@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton layoutX="400.0" layoutY="300.0" onAction="#RinkDiagramClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Rink Diagram" textFill="WHITE">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="400.0" layoutY="120.0" onAction="#NetChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Net Chart" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="400.0" layoutY="210.0" onAction="#ScoringChancesClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Scoring Chances" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="400.0" layoutY="30.0" onAction="#databaseClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Database" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
+             <JFXButton layoutX="400.0" layoutY="390.0" onAction="#shotChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Shot Chart" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="425.0" layoutY="10.0" prefHeight="177.0" prefWidth="431.0" text="HOME" textAlignment="CENTER" textFill="#c42134">
+               <font>
+                  <Font name="System Bold" size="75.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="200.0" fitWidth="200.0">
+               <image>
+                  <Image url="@../Images/miami-dark.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="1080.0">
+               <image>
+                  <Image url="@../Images/miami-dark.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="1177.0" layoutY="4.0" onAction="#GoalieLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>
