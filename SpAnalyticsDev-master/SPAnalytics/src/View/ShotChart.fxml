@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SplitMenuButton?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.image.Image?>
@@ -17,15 +16,15 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <right>
-      <AnchorPane prefHeight="200.0" prefWidth="1026.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="561.0" prefWidth="1210.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
          <children>
-            <TabPane layoutY="146.0" prefHeight="348.0" prefWidth="1184.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+            <TabPane layoutX="-15.0" layoutY="138.0" prefHeight="413.0" prefWidth="1154.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
               <tabs>
                 <Tab onSelectionChanged="#NetChartHomeSelected" text="Home">
                   <content>
-                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="510.0" prefWidth="1151.0">
+                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="1117.0">
                            <children>
-                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="585.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="511.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/NetChart.jpg" />
                                  </image>
@@ -41,9 +40,9 @@
                                     <Font name="System Bold" size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="296.0" fitWidth="585.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="79.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Images/rink.png" />
+                                    <Image url="@../Images/half_rink.jpg" />
                                  </image>
                               </ImageView>
                            </children>
@@ -52,9 +51,9 @@
                 </Tab>
                 <Tab onSelectionChanged="#NetChartAwaySelected" text="Away">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="355.0" prefWidth="1151.0">
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="1250.0">
                            <children>
-                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="585.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="514.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/NetChart.jpg" />
                                  </image>
@@ -69,9 +68,9 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="296.0" fitWidth="585.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="80.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../Images/rink.png" />
+                                    <Image url="@../Images/half_rink.jpg" />
                                  </image>
                               </ImageView>
                            </children>
@@ -80,10 +79,11 @@
                 </Tab>
               </tabs>
             </TabPane>
-            <GridPane layoutX="321.0" prefHeight="50.0" prefWidth="860.0" AnchorPane.topAnchor="0.0">
+            <GridPane layoutX="250.0" prefHeight="50.0" prefWidth="931.0" AnchorPane.topAnchor="0.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
@@ -91,35 +91,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Team For:">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                      <MenuItem mnemonicParsing="false" text="Action 2" />
-                    </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Team Against:" GridPane.columnIndex="1">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Player:" GridPane.columnIndex="2">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="URL:" GridPane.columnIndex="3">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team For" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team Against" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Player" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="URL" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Status" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
                </children>
             </GridPane>
-            <GridPane layoutX="321.0" layoutY="88.0" prefHeight="50.0" prefWidth="860.0">
+            <GridPane layoutX="249.0" layoutY="68.0" prefHeight="70.0" prefWidth="932.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -130,117 +110,76 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Shot #:">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Shot Type:" GridPane.columnIndex="1">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="RB:" GridPane.columnIndex="2">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Goalie:" GridPane.columnIndex="3">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Extra Info:" GridPane.columnIndex="4">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
-                  <SplitMenuButton mnemonicParsing="false" prefHeight="27.0" prefWidth="213.0" text="Status:" GridPane.columnIndex="5">
-                     <items>
-                        <MenuItem mnemonicParsing="false" text="Action 1" />
-                        <MenuItem mnemonicParsing="false" text="Action 2" />
-                     </items>
-                  </SplitMenuButton>
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot Type" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="RB" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Goalie" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Extra Info" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
                </children>
             </GridPane>
          </children>
       </AnchorPane>
    </right>
    <top>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="138.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" layoutX="425.0" layoutY="10.0" prefHeight="177.0" prefWidth="431.0" text="Shot Chart" textAlignment="CENTER" textFill="#c42134">
+            <Label alignment="CENTER" layoutX="425.0" layoutY="10.0" prefHeight="122.0" prefWidth="431.0" text="Shot Chart" textAlignment="CENTER" textFill="#c42134">
                <font>
                   <Font name="System Bold" size="75.0" />
                </font>
             </Label>
-            <ImageView fitHeight="200.0" fitWidth="200.0">
+            <ImageView fitHeight="132.0" fitWidth="136.0" layoutX="110.0" layoutY="27.0" preserveRatio="true">
                <image>
-                  <Image url="@../Images/miami-dark.jpg" />
+                  <Image url="@../Images/SPLogo.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="1080.0">
-               <image>
-                  <Image url="@../Images/miami-dark.jpg" />
-               </image>
-            </ImageView>
-            <JFXButton buttonType="RAISED" layoutX="1108.0" layoutY="157.0" onAction="#NetChartSaveHomePressed" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #C42134;" text="Save All" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <JFXButton buttonType="RAISED" layoutX="1111.0" layoutY="49.0" onAction="#NetChartSaveHomePressed" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #C42134;" text="Save All" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="1177.0" layoutY="4.0" onAction="#PlayerLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="1178.0" layoutY="3.0" onAction="#PlayerLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="5.0" layoutY="3.0" onAction="#goBack" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="BACK" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="3.0" layoutY="3.0" onAction="#goBack" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="BACK" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <SplitMenuButton layoutY="157.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="176.0" style="-fx-background-color: #C42134 #C42134;" text="Select Game:">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
-                <MenuItem mnemonicParsing="false" text="Action 2" />
-              </items>
-            </SplitMenuButton>
          </children>
       </AnchorPane>
    </top>
    <left>
-      <AnchorPane maxHeight="-Infinity" prefHeight="176.0" prefWidth="407.0" translateY="-170.0" BorderPane.alignment="CENTER">
+      <AnchorPane maxHeight="-Infinity" prefHeight="212.0" prefWidth="332.0" translateY="-170.0" BorderPane.alignment="CENTER">
       <children>
-                  <JFXButton buttonType="RAISED" layoutX="125.0" layoutY="96.0" onAction="#StopTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Stop" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="128.0" onAction="#StopTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Stop" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutY="96.0" onAction="#StartTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Start" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="128.0" onAction="#StartTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Start" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="252.0" layoutY="96.0" onAction="#ResetTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Reset" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="128.0" onAction="#ResetTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Reset" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <Label fx:id="Time" alignment="TOP_CENTER" layoutY="37.0" prefHeight="50.0" prefWidth="210.0" text="20:00 1st" textAlignment="RIGHT" textFill="WHITE">
+                  <Label fx:id="Time" alignment="TOP_CENTER" layoutX="17.0" layoutY="63.0" prefHeight="50.0" prefWidth="210.0" text="20:00 1st" textAlignment="RIGHT" textFill="WHITE">
                      <font>
                         <Font size="33.0" />
                      </font>
                   </Label>
-                  <JFXButton buttonType="RAISED" layoutX="252.0" layoutY="36.0" onAction="#NextPeriodClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Next Period" textFill="WHITE" wrapText="true">
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="62.0" onAction="#NextPeriodClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Next Period" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
+            <JFXComboBox focusColor="WHITE" layoutX="171.0" layoutY="3.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
                </children>
       </AnchorPane>
    </left>
