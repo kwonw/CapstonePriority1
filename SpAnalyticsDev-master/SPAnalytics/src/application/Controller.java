@@ -137,6 +137,19 @@ public class Controller {
 	@FXML private Label awayNetChartFail;
 	@FXML private Label awayNetChartSuccess;
 	
+	//Shot Chart variables 
+	@FXML private ComboBox<String> teamForCombo;
+	@FXML private ComboBox<String> teamAgainstCombo;
+	@FXML private ComboBox<String> playerCombo;
+	@FXML private ComboBox<String> urlCombo;
+	@FXML private ComboBox<String> statusCombo;
+	@FXML private ComboBox<String> shotCombo;
+	@FXML private ComboBox<String> shotTypeCombo;
+	@FXML private ComboBox<String> rbCombo;
+	@FXML private ComboBox<String> goalieCombo;
+	@FXML private ComboBox<String> extraInfoCombo;
+	@FXML private ComboBox<String> selectGameCombo;
+	
 
 	private ArrayList<DrawnObject> homeNetChartItems = new ArrayList<DrawnObject>();
 	private int homeNetChartIndex = 0;
@@ -550,7 +563,87 @@ public class Controller {
 				PlayerList.getItems().addAll(m.playerNames());
 			} catch(Exception e) {}
 		}
-	}
+		
+		if(newScene.equals(SHOT_CHART)) {
+			
+			//gets all the info for each combo box
+			teamForCombo.getItems().addAll(
+					"CC",
+					"Denver",
+					"Miami",
+					"UMD",
+					"UND",
+					"UNO",
+					"SCSU",
+					"WMU",
+					"Other");
+			teamAgainstCombo.getItems().addAll(
+					"CC",
+					"Denver",
+					"Miami",
+					"UMD",
+					"UND",
+					"UNO",
+					"SCSU",
+					"WMU",
+					"Other");
+			playerCombo.getItems().addAll(
+					"3",
+					"4",
+					"6",
+					"7",
+					"9",
+					"10",
+					"11",
+					"13",
+					"18",
+					"19",
+					"20",
+					"22",
+					"28",
+					"31",
+					"33",
+					"36",
+					"37",
+					"39",
+					"55",
+					"67",
+					"71",
+					"81",
+					"85");
+			urlCombo.getItems().addAll();
+			shotCombo.getItems().addAll();
+			shotTypeCombo.getItems().addAll(
+					);
+			rbCombo.getItems().addAll(
+					"Yes",
+					"No");
+			goalieCombo.getItems().addAll(
+					"Moving",
+					"Stationary");
+			extraInfoCombo.getItems().addAll(
+					"5v5",
+					"4v4",
+					"3v3",
+					"5v4",
+					"4v5",
+					"5v3",
+					"3v5",
+					"4v3",
+					"3v4",
+					"6v5",
+					"5v6",
+					"6v4",
+					"4v6",
+					"6v3",
+					"3v6");
+			statusCombo.getItems().addAll(
+					"Goal",
+					"No Goal");
+			selectGameCombo.getItems().addAll(
+					);
+		}
+	}// end of loadScene Method 
 
 	/**
 	 * Helper method to copy rink diagram from Clip object to the drawList
@@ -721,12 +814,6 @@ public class Controller {
 		loadScene(ADMIN_ADD);
 	}
 	
-	@FXML
-	public void shotChartClicked() {
-		loadScene(SHOT_CHART);
-	}
-
-
 	/**
 	 * This is the method that will add a player to the database.
 	 */
@@ -879,6 +966,13 @@ public class Controller {
 	@FXML
 	public void GoalieLogoutButtonClicked() {
 		loadScene(LOGIN_SCENE);
+	}
+	/**
+	 * This method loads the Shot Chart page 
+	 */
+	@FXML
+	public void shotChartClicked() {
+		loadScene(SHOT_CHART);
 	}
 
 	/**

@@ -91,11 +91,11 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team For" style="-fx-background-color: white;" unFocusColor="BLACK" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team Against" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Player" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="URL" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Status" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
+                  <JFXComboBox fx:id="teamForCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team For" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox fx:id="teamAgainstCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team Against" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox fx:id="playerCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Player" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox fx:id="urlCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="URL" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox fx:id="statusCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Status" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
                </children>
             </GridPane>
             <GridPane layoutX="249.0" layoutY="68.0" prefHeight="70.0" prefWidth="932.0">
@@ -110,11 +110,11 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot" style="-fx-background-color: white;" unFocusColor="BLACK" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot Type" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="RB" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Goalie" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
-                  <JFXComboBox focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Extra Info" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
+                  <JFXComboBox fx:id="shotCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox fx:id="shotTypeCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot Type" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox fx:id="rbCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="RB" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox fx:id="goalieCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Goalie" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox fx:id="extraInfoCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Extra Info" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
                </children>
             </GridPane>
          </children>
