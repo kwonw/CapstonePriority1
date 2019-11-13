@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -45,6 +46,8 @@
                                     <Image url="@../Images/half_rink.jpg" />
                                  </image>
                               </ImageView>
+                              <Canvas fx:id="HomeNetChartCanvas" height="346.0" layoutX="79.0" layoutY="32.0" onMousePressed="#drawCircle" width="392.0" />
+                              <Canvas fx:id="HomeNetChartCanvas" height="349.0" layoutX="511.0" layoutY="32.0" width="566.0" onMousePressed="#drawCircle" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -53,7 +56,7 @@
                   <content>
                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="1250.0">
                            <children>
-                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="514.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="511.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/NetChart.jpg" />
                                  </image>
@@ -68,7 +71,7 @@
                                     <Font size="17.0" />
                                  </font>
                               </Label>
-                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="80.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="79.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../Images/half_rink.jpg" />
                                  </image>
@@ -179,7 +182,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-            <JFXComboBox focusColor="WHITE" layoutX="171.0" layoutY="3.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
+            <JFXComboBox focusColor="WHITE" layoutX="166.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
                </children>
       </AnchorPane>
    </left>

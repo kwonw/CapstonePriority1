@@ -93,7 +93,6 @@ public class Controller {
 	private ChoiceBox<String>		rosterList;
 	@FXML
 	private ComboBox<String>		users;
-
 	@FXML
 	private PasswordField			adminPass;
 
@@ -566,6 +565,21 @@ public class Controller {
 		
 		if(newScene.equals(SHOT_CHART)) {
 			
+			netChartCanvas = HomeNetChartCanvas;
+			
+			homeGC = HomeNetChartCanvas.getGraphicsContext2D();
+			homeGC.setStroke(Color.color(.77, .13, .2));
+			homeGC.setLineWidth(7);
+			homeNetChartItems = new ArrayList<DrawnObject>();
+			homeNetChartIndex = 0;
+
+			awayGC = AwayNetChartCanvas.getGraphicsContext2D();
+			awayGC.setStroke(Color.color(.77, .13, .2));
+			awayGC.setLineWidth(7);
+			awayNetChartItems = new ArrayList<DrawnObject>();
+			awayNetChartIndex = 0;
+			ovalWidth = 30;
+			
 			//gets all the info for each combo box
 			teamForCombo.getItems().addAll(
 					"CC",
@@ -613,8 +627,7 @@ public class Controller {
 					"85");
 			urlCombo.getItems().addAll();
 			shotCombo.getItems().addAll();
-			shotTypeCombo.getItems().addAll(
-					);
+			shotTypeCombo.getItems().addAll();
 			rbCombo.getItems().addAll(
 					"Yes",
 					"No");
@@ -640,8 +653,6 @@ public class Controller {
 			statusCombo.getItems().addAll(
 					"Goal",
 					"No Goal");
-			selectGameCombo.getItems().addAll(
-					);
 		}
 	}// end of loadScene Method 
 
@@ -1000,6 +1011,10 @@ public class Controller {
 	public void drawCircle(MouseEvent e) {
 		//set a home circle
 		if(netChartCanvas == HomeNetChartCanvas) {
+			
+			System.out.println(e.getY());
+			//System.out.println("HOME GC WHATEVER: " + homeGC.toString());// This gives me the error
+			System.out.println("OVAL WIDTH" +  ovalWidth); //ovalWidth is 0 
 			
 			//draw the circle
 			Point p1 = new Point(e.getX()-(ovalWidth/2), e.getY()-(ovalWidth/2), homeGC.getStroke());
