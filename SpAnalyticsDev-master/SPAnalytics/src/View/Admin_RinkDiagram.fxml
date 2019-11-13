@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1440.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1434.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="14.0" onAction="#goBack" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <AnchorPane layoutX="403.0" layoutY="14.0" prefHeight="112.0" prefWidth="313.0">
+               <children>
+                  <JFXButton buttonType="RAISED" layoutX="111.0" layoutY="71.0" onAction="#StopTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Stop" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutY="71.0" onAction="#StartTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Start" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="224.0" layoutY="71.0" onAction="#ResetTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="Time" alignment="TOP_CENTER" layoutY="12.0" prefHeight="50.0" prefWidth="210.0" text="20:00 1st" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" layoutX="223.0" layoutY="10.0" onAction="#NextPeriodClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Next Period" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <TabPane layoutX="744.0" layoutY="14.0" prefHeight="145.0" prefWidth="603.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="NCHC">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="93.0" prefWidth="487.0">
+                           <children>
+                              <TextField fx:id="NCHC_URL" layoutX="114.0" layoutY="8.0" prefHeight="31.0" prefWidth="270.0" promptText="URL" />
+                              <Text fill="WHITE" layoutX="14.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Replay Link" wrappingWidth="135.703125">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <JFXButton buttonType="RAISED" layoutX="394.0" layoutY="8.0" onAction="#NCHCOpenButtonClicked" prefHeight="32.0" prefWidth="87.0" style="-fx-background-color: #C42134;" text="OPEN" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                              <TextArea fx:id="TimeStampNotes" layoutX="279.0" layoutY="53.0" prefHeight="28.0" prefWidth="200.0" promptText="Title" />
+                              <ComboBox fx:id="TimeStamps" layoutX="12.0" layoutY="51.0" prefHeight="31.0" prefWidth="261.0" promptText="Time Stamps" style="-fx-background-color: white;" />
+                              <JFXButton buttonType="RAISED" layoutX="495.0" layoutY="15.0" onAction="#SaveNotesButtonClicked" prefHeight="76.0" prefWidth="99.0" style="-fx-background-color: #C42134;" text="Save Link and Title to Clip" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="15.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <ComboBox fx:id="GamePicker" layoutX="170.0" layoutY="56.0" prefHeight="31.0" prefWidth="186.0" promptText="Select Game" style="-fx-background-color: white;" />
+            <Text fill="WHITE" layoutX="173.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="CENTER" wrappingWidth="180.703125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="74.0" onAction="#SaveClipsToDBClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Save All Clips to DB" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Label alignment="CENTER" layoutX="403.0" layoutY="126.0" prefHeight="21.0" prefWidth="324.0" text="Save a time stamp by pressing the 'S' key" textFill="#a19e9e" />
+            <Label fx:id="titleAndLinkSuccess" layoutX="1213.0" layoutY="141.0" prefHeight="34.0" prefWidth="175.0" text="Title and Link Saved!" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="clipsSuccess" layoutX="15.0" layoutY="131.0" text="All Clips Saved!" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="selectGameFirst" layoutX="15.0" layoutY="145.0" text="You Must Select A Game First!" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="1433.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane layoutX="29.0" layoutY="46.0" prefHeight="571.0" prefWidth="1096.0" style="-fx-border-color: white;">
+               <children>
+                  <ImageView fitHeight="549.0" fitWidth="1157.0" layoutX="8.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/rink.png" />
+                     </image>
+                  </ImageView>
+                  <Canvas fx:id="RinkCanvas" height="553.0" layoutX="8.0" layoutY="9.0" onMouseDragged="#CanvasMouseDragged" onMousePressed="#CanvasMousePressed" width="1094.0" />
+               </children>
+            </AnchorPane>
+            <ColorPicker fx:id="RinkCP" layoutX="351.0" layoutY="6.0" onAction="#RinkCPColorChange" onMouseReleased="#RinkCPColorChange" prefHeight="26.0" prefWidth="135.0">
+            	<value>
+            		<Color blue="1.0" green="1.0" red="1.0" />
+            	</value>
+            </ColorPicker>
+            <Slider fx:id="RinkSlider" blockIncrement="1.0" layoutX="578.0" layoutY="20.0" majorTickUnit="5.0" max="20.0" minorTickCount="4" onMouseReleased="#RinkSliderDropped" prefHeight="18.0" prefWidth="297.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="5.0" AnchorPane.bottomAnchor="592.0" AnchorPane.topAnchor="20.0" />
+            <Label layoutX="515.0" layoutY="7.0" text="Line Size" textFill="WHITE" />
+            <Label layoutX="243.0" layoutY="6.0" text="Text/Line Color" textFill="WHITE" />
+            <AnchorPane layoutX="41.0" layoutY="2.0" prefHeight="35.0" prefWidth="203.0">
+               <children>
+                  <RadioButton fx:id="RadioLine" layoutX="14.0" layoutY="4.0" mnemonicParsing="false" selected="true" text="Line" textFill="WHITE">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="RinkGroup" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="RadioText" layoutX="113.0" layoutY="4.0" mnemonicParsing="false" text="Text" textFill="WHITE" toggleGroup="$RinkGroup" />
+               </children>
+            </AnchorPane>
+            <JFXButton buttonType="RAISED" layoutX="1078.0" layoutY="7.0" onAction="#UndoRinkClicked" prefHeight="31.0" prefWidth="84.0" style="-fx-background-color: #C42134;" text="Undo" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <TextArea fx:id="RinkDiagramText" layoutX="917.0" layoutY="6.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="32.0" prefWidth="130.0" promptText="Number to Add" />
+            <Label fx:id="diagramSuccess" layoutX="1185.0" prefHeight="40.0" prefWidth="171.0" text="Rink Diagram Saved!" textFill="WHITE" visible="false">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="1182.0" layoutY="36.0" onAction="#SaveRinkClicked" prefHeight="77.0" prefWidth="210.0" style="-fx-background-color: #C42134;" text="Save Diagram and Players to Clip" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <ListView fx:id="PlayerList" layoutX="1162.0" layoutY="176.0" prefHeight="440.0" prefWidth="253.0" style="-fx-background-color: White; -fx-border-color: #C42134;" />
+            <Text fill="WHITE" layoutX="1156.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Players in Clip" textAlignment="CENTER" wrappingWidth="259.703125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

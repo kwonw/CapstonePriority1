@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="621.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView editable="true" layoutX="98.0" layoutY="56.0" prefHeight="85.0" prefWidth="332.0" style="-fx-background-color: black; text-color: white;">
+        <columns>
+          <TableColumn prefWidth="54.0" text="Season" />
+          <TableColumn prefWidth="28.0" text="GP" />
+            <TableColumn prefWidth="19.0" text="W" />
+            <TableColumn prefWidth="21.0" text="L" />
+            <TableColumn prefWidth="20.0" text="T" />
+            <TableColumn prefWidth="30.0" text="GA" />
+            <TableColumn prefWidth="36.0" text="GAA" />
+            <TableColumn prefWidth="28.0" text="SA" />
+            <TableColumn prefWidth="26.0" text="SV" />
+            <TableColumn prefWidth="36.0" text="SV%" />
+            <TableColumn prefWidth="32.0" text="SO" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="138.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/Larkin.jpg" />
+         </image>
+      </ImageView>
+      <JFXTextArea layoutX="98.0" prefHeight="56.0" prefWidth="215.0" style="-fx-background-color: black; -fx-text-fill: white;" text="#31 Ryan Larkin&#9;   Goaltender&#10;Height: 6'1&quot; &#9;  Weight: 201 Lbs&#10;Born: 6/10/97 &#9;&#9;Clarkson, MI" unFocusColor="#ffffff00" />
+      <Label layoutY="144.0" prefHeight="20.0" prefWidth="92.0" style="-fx-text-fill: #C42134;" text="Game Log:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="1.0" layoutY="170.0" prefHeight="20.0" prefWidth="92.0" style="-fx-text-fill: #C42134;" text="U Conn:" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton buttonType="RAISED" layoutX="515.0" layoutY="7.0" prefHeight="43.0" prefWidth="92.0" style="-fx-background-color: #C42134;" text="HOME" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="82.0" layoutY="146.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="10.6" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="115.0" layoutY="146.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="10.7" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="148.0" layoutY="146.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="10.8" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="181.0" layoutY="146.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="10.9" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="214.0" layoutY="146.0" prefHeight="0.0" prefWidth="35.0" style="-fx-background-color: #C42134;" text="10.10" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="249.0" layoutY="146.0" prefHeight="0.0" prefWidth="35.0" style="-fx-background-color: #C42134;" text="10.12" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="82.0" layoutY="170.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="W" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="121.0" layoutY="170.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="7-1" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="160.0" layoutY="170.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="27" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="199.0" layoutY="170.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text="26" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="238.0" layoutY="170.0" prefHeight="0.0" prefWidth="33.0" style="-fx-background-color: #C42134;" text=".963" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="284.0" layoutY="146.0" prefHeight="0.0" prefWidth="35.0" style="-fx-background-color: #C42134;" text="10.13" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="317.0" layoutY="146.0" prefHeight="0.0" prefWidth="35.0" style="-fx-background-color: #C42134;" text="10.14" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="365.0" layoutY="146.0" prefHeight="0.0" prefWidth="75.0" style="-fx-background-color: #C42134;" text="SHOW ALL" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="185.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Goals" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="208.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Saves" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="264.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Goals" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="287.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Saves" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="340.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Goals" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="363.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Saves" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="231.0" prefHeight="10.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="All" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="310.0" prefHeight="10.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="All" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="352.0" layoutY="386.0" prefHeight="10.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="All" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="298.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/dot.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="298.0" layoutY="274.0" prefHeight="43.0" prefWidth="43.0" style="-fx-background-color: white;" text="\%">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="56.0" fitWidth="43.0" layoutX="298.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/heatMap.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="241.0" fitWidth="292.0" layoutX="2.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Images/GoaliePercent.png" />
+         </image>
+      </ImageView>
+      <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="277.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Region" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="413.0" layoutY="300.0" prefHeight="17.0" prefWidth="55.0" style="-fx-background-color: #C42134;" text="Overall" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="10.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

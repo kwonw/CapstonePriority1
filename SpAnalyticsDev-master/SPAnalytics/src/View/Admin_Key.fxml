@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1440.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane id="login-screen" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: black; -fx-alignment: center;">
+         <children>
+            <VBox prefHeight="400.0" prefWidth="600.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="6.0" layoutY="50.0" nodeOrientation="INHERIT" pickOnBounds="true">
+               <image>
+                  <Image url="@../Images/miami-dark.jpg" />
+               </image>
+            </ImageView>
+            
+           <!--
+           <JFXPasswordField focusColor="#c42134" layoutX="319.0" layoutY="185.0" prefHeight="30.0" prefWidth="250.0" promptText="Password" unFocusColor="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXPasswordField>
+            -->
+            
+            <Label alignment="CENTER" contentDisplay="TOP" layoutX="300.0" layoutY="50.0" prefHeight="60.0" prefWidth="300.0" text="SP Analytics" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="keySubmit" alignment="CENTER" buttonType="RAISED" layoutX="375.0" layoutY="240.0" onAction="#submitKey" prefHeight="30.0" prefWidth="140.0" ripplerFill="#c42134" style="-fx-background-color: #C42134;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="databaseKey" layoutX="320.0" layoutY="172.0" prefHeight="28.0" prefWidth="250.0" promptText="Enter Key" style="-fx-background-color: BLACK;" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

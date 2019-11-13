@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="1100.0" layoutY="141.0" onAction="#NetChartUndoPressed" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #C42134;" text="UNDO" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="1116.0" layoutY="244.0" maxWidth="89.0" onAction="#setColorRed" prefHeight="86.0" prefWidth="138.0" style="-fx-background-color: #C42134; -fx-background-radius: 10em; -fx-min-width: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-max-width: 90px;" text="Button" textFill="#f0050500" />
+            <JFXButton layoutX="1116.0" layoutY="361.0" maxWidth="89.0" onAction="#setColorGreen" prefHeight="86.0" prefWidth="89.0" style="-fx-background-color: Green; -fx-background-radius: 10em; -fx-min-width: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-max-width: 90px;" textFill="#f0050500" />
+            <TabPane layoutX="14.0" layoutY="7.0" prefHeight="578.0" prefWidth="867.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab onSelectionChanged="#NetChartHomeSelected" text="Miami">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="533.0" prefWidth="622.0">
+                           <children>
+                              <ImageView fitHeight="537.0" fitWidth="724.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/half_rink.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Canvas fx:id="HomeNetChartCanvas" height="537.0" onMousePressed="#drawCircle" width="611.0" />
+                              <JFXButton buttonType="RAISED" layoutX="660.0" layoutY="25.0" onAction="#ScoringChartSaveHomePressed" prefHeight="75.0" prefWidth="161.0" style="-fx-background-color: #C42134;" text="Save Miami Chart" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label fx:id="homeChartFail" layoutX="657.0" layoutY="106.0" prefHeight="31.0" prefWidth="174.0" text="Select a Game First!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="homeChartSuccess" layoutX="657.0" layoutY="126.0" prefHeight="31.0" prefWidth="174.0" text="Chart Saved!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab onSelectionChanged="#NetChartAwaySelected" text="Opponent">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="537.0" fitWidth="724.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/half_rink.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Canvas fx:id="AwayNetChartCanvas" height="537.0" onMousePressed="#drawCircle" width="611.0" />
+                              <JFXButton buttonType="RAISED" layoutX="660.0" layoutY="25.0" onAction="#ScoringChartSaveAwayPressed" prefHeight="106.0" prefWidth="161.0" style="-fx-background-color: #C42134;" text="Save Opponent Chart" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </JFXButton>
+                              <Label fx:id="awayChartSuccess" layoutX="666.0" layoutY="150.0" prefHeight="31.0" prefWidth="174.0" text="Chart Saved!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="awayChartFail" layoutX="666.0" layoutY="128.0" prefHeight="31.0" prefWidth="174.0" text="Select a Game First!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Text fill="WHITE" layoutX="1031.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="CENTER" wrappingWidth="180.703125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <ComboBox fx:id="GamePicker" layoutX="1031.0" layoutY="43.0" prefHeight="31.0" prefWidth="186.0" promptText="Select Game" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <AnchorPane prefHeight="133.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="327.0" layoutY="12.0" prefHeight="75.0" prefWidth="631.0" text="Scoring Chances" textAlignment="CENTER" textFill="#c42134">
+               <font>
+                  <Font name="System Bold" size="75.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="110.0" fitWidth="101.0" layoutX="155.0" layoutY="12.0">
+               <image>
+                  <Image url="@../images/miami-dark.jpg" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="1177.0" layoutY="4.0" onAction="#PlayerLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="5.0" layoutY="3.0" onAction="#goBack" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="BACK" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </top>
+</BorderPane>

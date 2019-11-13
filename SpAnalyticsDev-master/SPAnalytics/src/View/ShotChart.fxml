@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <right>
+      <AnchorPane prefHeight="561.0" prefWidth="1210.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane layoutX="-15.0" layoutY="138.0" prefHeight="413.0" prefWidth="1154.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab onSelectionChanged="#NetChartHomeSelected" text="Home">
+                  <content>
+                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="348.0" prefWidth="1117.0">
+                           <children>
+                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="511.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/NetChart.jpg" />
+                                 </image>
+                              </ImageView>
+                              <!-- <Canvas fx:id="HomeNetChartCanvas" height="448.0" layoutX="43.0" layoutY="12.0" onMousePressed="#drawCircle" width="731.0" /> -->
+                              <Label fx:id="homeNetChartFail" layoutX="813.0" layoutY="119.0" prefHeight="22.0" prefWidth="169.0" text="Select a Game First!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="homeNetChartSuccess" layoutX="813.0" layoutY="138.0" prefHeight="22.0" prefWidth="169.0" text="Net Chart Saved!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="79.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/half_rink.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab onSelectionChanged="#NetChartAwaySelected" text="Away">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="1250.0">
+                           <children>
+                              <ImageView fitHeight="348.0" fitWidth="591.0" layoutX="514.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/NetChart.jpg" />
+                                 </image>
+                              </ImageView>
+                              <Label fx:id="awayNetChartFail" layoutX="814.0" layoutY="149.0" prefHeight="24.0" prefWidth="167.0" text="Select a Game First!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="awayNetChartSuccess" layoutX="814.0" layoutY="167.0" prefHeight="24.0" prefWidth="167.0" text="Net Chart Saved!" textFill="WHITE" visible="false">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="345.0" fitWidth="522.0" layoutX="80.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/half_rink.jpg" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <GridPane layoutX="250.0" prefHeight="50.0" prefWidth="931.0" AnchorPane.topAnchor="0.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <JFXComboBox fx:id="teamForCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team For" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox fx:id="teamAgainstCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Team Against" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox fx:id="playerCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Player" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox fx:id="urlCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="URL" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox fx:id="statusCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Status" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
+               </children>
+            </GridPane>
+            <GridPane layoutX="249.0" layoutY="68.0" prefHeight="70.0" prefWidth="932.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <JFXComboBox fx:id="shotCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot" style="-fx-background-color: white;" unFocusColor="BLACK" />
+                  <JFXComboBox fx:id="shotTypeCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Shot Type" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="1" />
+                  <JFXComboBox fx:id="rbCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="RB" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="2" />
+                  <JFXComboBox fx:id="goalieCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Goalie" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="3" />
+                  <JFXComboBox fx:id="extraInfoCombo" focusColor="WHITE" prefHeight="41.0" prefWidth="161.0" promptText="Extra Info" style="-fx-background-color: white;" unFocusColor="BLACK" GridPane.columnIndex="4" />
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </right>
+   <top>
+      <AnchorPane prefHeight="138.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" layoutX="425.0" layoutY="10.0" prefHeight="122.0" prefWidth="431.0" text="Shot Chart" textAlignment="CENTER" textFill="#c42134">
+               <font>
+                  <Font name="System Bold" size="75.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="132.0" fitWidth="136.0" layoutX="110.0" layoutY="27.0" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/SPLogo.png" />
+               </image>
+            </ImageView>
+            <JFXButton buttonType="RAISED" layoutX="1111.0" layoutY="49.0" onAction="#NetChartSaveHomePressed" prefHeight="40.0" prefWidth="169.0" style="-fx-background-color: #C42134;" text="Save All" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="1178.0" layoutY="3.0" onAction="#PlayerLogoutButtonClicked" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="LOGOUT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="3.0" layoutY="3.0" onAction="#goBack" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="BACK" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane maxHeight="-Infinity" prefHeight="212.0" prefWidth="332.0" translateY="-170.0" BorderPane.alignment="CENTER">
+      <children>
+                  <JFXButton buttonType="RAISED" layoutX="122.0" layoutY="128.0" onAction="#StopTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Stop" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="14.0" layoutY="128.0" onAction="#StartTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Start" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="128.0" onAction="#ResetTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="Time" alignment="TOP_CENTER" layoutX="17.0" layoutY="63.0" prefHeight="50.0" prefWidth="210.0" text="20:00 1st" textAlignment="RIGHT" textFill="WHITE">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <JFXButton buttonType="RAISED" layoutX="227.0" layoutY="62.0" onAction="#NextPeriodClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Next Period" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+            <JFXComboBox focusColor="WHITE" layoutX="171.0" layoutY="3.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
+               </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
