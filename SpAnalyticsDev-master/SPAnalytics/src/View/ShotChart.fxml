@@ -47,7 +47,7 @@
                                  </image>
                               </ImageView>
                               <Canvas fx:id="HomeNetChartCanvas" height="346.0" layoutX="79.0" layoutY="32.0" onMousePressed="#drawCircle" width="392.0" />
-                              <Canvas fx:id="HomeNetChartCanvas" height="349.0" layoutX="511.0" layoutY="32.0" width="566.0" onMousePressed="#drawCircle" />
+                              <Canvas fx:id="HomeNetChartCanvas" height="349.0" layoutX="511.0" layoutY="32.0" onMousePressed="#drawCircle" width="566.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -182,7 +182,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-            <JFXComboBox focusColor="WHITE" layoutX="166.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
+            <JFXComboBox fx:id="GamePicker" focusColor="WHITE" layoutX="166.0" prefHeight="41.0" prefWidth="161.0" promptText="Select Game" style="-fx-background-color: white;" unFocusColor="BLACK" />
                </children>
       </AnchorPane>
    </left>

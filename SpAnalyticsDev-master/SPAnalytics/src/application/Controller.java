@@ -65,6 +65,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -147,8 +148,7 @@ public class Controller {
 	@FXML private ComboBox<String> rbCombo;
 	@FXML private ComboBox<String> goalieCombo;
 	@FXML private ComboBox<String> extraInfoCombo;
-	@FXML private ComboBox<String> selectGameCombo;
-	
+	@FXML private ComboBox<String> selectGameCombo;	
 
 	private ArrayList<DrawnObject> homeNetChartItems = new ArrayList<DrawnObject>();
 	private int homeNetChartIndex = 0;
@@ -573,14 +573,15 @@ public class Controller {
 			homeNetChartItems = new ArrayList<DrawnObject>();
 			homeNetChartIndex = 0;
 
-			awayGC = AwayNetChartCanvas.getGraphicsContext2D();
-			awayGC.setStroke(Color.color(.77, .13, .2));
-			awayGC.setLineWidth(7);
-			awayNetChartItems = new ArrayList<DrawnObject>();
-			awayNetChartIndex = 0;
+//			awayGC = AwayNetChartCanvas.getGraphicsContext2D();
+//			awayGC.setStroke(Color.color(.77, .13, .2));
+//			awayGC.setLineWidth(7);
+//			awayNetChartItems = new ArrayList<DrawnObject>();
+//			awayNetChartIndex = 0;
 			ovalWidth = 30;
 			
 			//gets all the info for each combo box
+			GamePicker.getItems().addAll(m.getGameStats());
 			teamForCombo.getItems().addAll(
 					"CC",
 					"Denver",
