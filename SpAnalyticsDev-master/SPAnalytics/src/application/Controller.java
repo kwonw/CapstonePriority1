@@ -31,6 +31,7 @@ import com.sun.javafx.css.Style;
 
 import javafx.animation.PauseTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -96,6 +97,8 @@ public class Controller {
 	private ComboBox<String>		users;
 	@FXML
 	private PasswordField			adminPass;
+//	@FXML
+//	public Button 					exitButton; // soon to be implemented exit button
 
 	//Player/Goalie card variables
 	@FXML ComboBox GamePicker;
@@ -141,15 +144,22 @@ public class Controller {
 	@FXML private ComboBox<String> teamForCombo;
 	@FXML private ComboBox<String> teamAgainstCombo;
 	@FXML private ComboBox<String> playerCombo;
-	@FXML private ComboBox<String> urlCombo;
 	@FXML private ComboBox<String> statusCombo;
 	@FXML private ComboBox<String> shotCombo;
 	@FXML private ComboBox<String> shotTypeCombo;
 	@FXML private ComboBox<String> rbCombo;
 	@FXML private ComboBox<String> goalieCombo;
 	@FXML private ComboBox<String> extraInfoCombo;
-	@FXML private ComboBox<String> selectGameCombo;
-	//@FXML private ComboBox<String> selectGameCombo;	
+	
+	@FXML private ComboBox<String> playTypeCombo;
+	@FXML private ComboBox<String> playerStatusCombo;
+	@FXML private ComboBox<String> releaseTypeCombo;
+	@FXML private ComboBox<String> pChanceCombo;
+	@FXML private ComboBox<String> sChanceCombo;
+	@FXML private ComboBox<String> createdByCombo;
+	@FXML private ComboBox<String> resultCombo;
+	@FXML private ComboBox<String> scoringChanceCombo;
+	@FXML private TextField urlTextField;
 
 	private ArrayList<DrawnObject> homeNetChartItems = new ArrayList<DrawnObject>();
 	private int homeNetChartIndex = 0;
@@ -253,9 +263,6 @@ public class Controller {
 	@FXML
 	private JFXButton			addGame;
 
-
-
-
 	//Database connection
 	Model m = new Model();
 
@@ -276,11 +283,14 @@ public class Controller {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	public void exit() {
-		
-	}
-
+	/**
+	 * Method that will close the application when the Exit button is clicked 
+	 */
+//	@FXML
+//	public void handleCloseButtonAction(ActionEvent event) {
+//	    Stage stage = (Stage) exitButton .getScene().getWindow();
+//	    stage.close();
+//	}
 
 	/**
 	 * Helper method that will load scene
@@ -585,87 +595,94 @@ public class Controller {
 //			awayNetChartItems = new ArrayList<DrawnObject>();
 //			awayNetChartIndex = 0;
 			ovalWidth = 30;
-			
-			//gets all the info for each combo box
-			GamePicker.getItems().addAll(m.getGameStats());
-			teamForCombo.getItems().addAll(
-					"CC",
-					"Denver",
-					"Miami",
-					"UMD",
-					"UND",
-					"UNO",
-					"SCSU",
-					"WMU",
-					"Other");
-			teamAgainstCombo.getItems().addAll(
-					"CC",
-					"Denver",
-					"Miami",
-					"UMD",
-					"UND",
-					"UNO",
-					"SCSU",
-					"WMU",
-					"Other");
-			playerCombo.getItems().addAll(
-					"3",
-					"4",
-					"6",
-					"7",
-					"9",
-					"10",
-					"11",
-					"13",
-					"18",
-					"19",
-					"20",
-					"22",
-					"28",
-					"31",
-					"33",
-					"36",
-					"37",
-					"39",
-					"55",
-					"67",
-					"71",
-					"81",
-					"85");
-			urlCombo.getItems().addAll();
-			shotCombo.getItems().addAll();
-			shotTypeCombo.getItems().addAll(
-					);
-			shotTypeCombo.getItems().addAll();
-			rbCombo.getItems().addAll(
-					"Yes",
-					"No");
-			goalieCombo.getItems().addAll(
-					"Moving",
-					"Stationary");
-			extraInfoCombo.getItems().addAll(
-					"5v5",
-					"4v4",
-					"3v3",
-					"5v4",
-					"4v5",
-					"5v3",
-					"3v5",
-					"4v3",
-					"3v4",
-					"6v5",
-					"5v6",
-					"6v4",
-					"4v6",
-					"6v3",
-					"3v6");
-			statusCombo.getItems().addAll(
-					"Goal",
-					"No Goal");
-			selectGameCombo.getItems().addAll();
-		}
+			initializeDropdowns();
+		}	
 	}// end of loadScene Method 
 
+	public void initializeDropdowns() {
+		//gets all the info for each combo box
+		GamePicker.getItems().addAll(m.getGameStats());
+	    playTypeCombo.getItems().addAll();   	//DEFINED IN DATABASE
+	    releaseTypeCombo.getItems().addAll(
+	    		"One-timer",
+	    		"Catch-Shoot");
+		pChanceCombo.getItems().addAll(
+				"3","4","6","7","9","10","11","13","18","19","20","22",
+				"28","31","33","36","37","39","55","67","71","81","85");
+		sChanceCombo.getItems().addAll(
+				"3","4","6","7","9","10","11","13","18","19","20","22",
+				"28","31","33","36","37","39","55","67","71","81","85");
+		createdByCombo.getItems().addAll(
+				"3","4","6","7","9","10","11","13","18","19","20","22",
+				"28","31","33","36","37","39","55","67","71","81","85");
+		resultCombo.getItems().addAll(
+				"First Goal",
+				"Down >2",
+				"Down 2",
+				"Down 1",
+				"Tied",
+				"Up 1",
+				"Up 2",
+				"Up >2",
+				"Empty Net"
+				);
+		teamForCombo.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
+		teamAgainstCombo.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
+		playerCombo.getItems().addAll(
+				"3","4","6","7","9","10","11","13","18","19","20","22",
+				"28","31","33","36","37","39","55","67","71","81","85");
+		playerStatusCombo.getItems().addAll(
+				"Stationary",
+				"Moving Forward",
+				"Moving Across");
+		shotCombo.getItems().addAll(
+				"1","2","3","4","5","6","7","8","9","10",
+				"11","12","13","14","15","16","17","18","19","20",
+				"21","22","23","24","25","26","27","28","29","30",
+				"31","32","33","34","35","36","37","38","39","40","41","42","43","44",
+				"45","46","47","48","49","50","51","52","53","54","55","56",
+				"57","58","59","60","61","62","63","64","65","66","67","68","69","70",
+				"71","72","73","74","75","76","77","78","79","80","81","82","83","84","85",
+				"86","87","88","89","90","91","92","93","94","95","96","97","98","99","100");
+		shotTypeCombo.getItems().addAll(
+				"Wrist shot" 
+				,"Slapshot"
+				,"Backhand");
+		rbCombo.getItems().addAll(
+				"Yes",
+				"No");
+		goalieCombo.getItems().addAll(
+				"Moving",
+				"Stationary");
+		extraInfoCombo.getItems().addAll(
+				"5v5", "4v4","3v3",	"5v4","4v5",
+				"5v3","3v5","4v3","3v4","6v5","5v6","6v4","4v6","6v3","3v6");
+		statusCombo.getItems().addAll(
+				"Goal",
+				"No Goal");
+		scoringChanceCombo.getItems().addAll(
+				"Yes",
+				"No");
+	}//end of initializeDropdowns()
+		
 	/**
 	 * Helper method to copy rink diagram from Clip object to the drawList
 	 */
