@@ -12,32 +12,32 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: BLACK;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton layoutX="400.0" layoutY="300.0" onAction="#RinkDiagramClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Rink Diagram" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="238.0" onAction="#RinkDiagramClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Rink Diagram" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="400.0" layoutY="120.0" onAction="#NetChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Net Chart" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="75.0" onAction="#NetChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Net Chart" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="400.0" layoutY="210.0" onAction="#ScoringChancesClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Scoring Chances" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="157.0" onAction="#ScoringChancesClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Scoring Chances" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="400.0" layoutY="30.0" onAction="#databaseClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Database" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="-6.0" onAction="#databaseClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Database" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="400.0" layoutY="388.0" onAction="#PossessionDiagramClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Possession Diagram" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="320.0" onAction="#PossessionDiagramClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Possession Diagram" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </JFXButton>
-            <JFXButton layoutX="400.0" layoutY="390.0" onAction="#shotChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Shot Chart" textFill="WHITE">
+            <JFXButton layoutX="400.0" layoutY="402.0" onAction="#shotChartClicked" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #C42134;" text="Shot Chart" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
