@@ -140,6 +140,11 @@ public class Controller {
 	@FXML private Label awayNetChartFail;
 	@FXML private Label awayNetChartSuccess;
 	
+	//possession chart variables
+	@FXML private Canvas PossessionDiagramCanvas;
+	@FXML private ColorPicker possCP;
+	private GraphicsContext possGC;
+	
 	//Shot Chart variables 
 	@FXML private ComboBox<String> teamForCombo;
 	@FXML private ComboBox<String> teamAgainstCombo;
@@ -216,6 +221,7 @@ public class Controller {
 	private final String	GOALIE_CARD_PERCENT		= "/View/SPAnalytics-goalieCardPercent.fxml";
 	private final String	ADMIN_SCORINGCHANCES	= "/View/Admin_ScoringChances.fxml";
 	private final String	ADMIN_RINKDIAGRAM		= "/View/Admin_RinkDiagram.fxml";
+	private final String	ADMIN_POSSESSIONDIAGRAM	= "/View/Admin_PossessionDiagram.fxml";
 	private final String	ADMIN_NETCHART			= "/View/Admin_NetChart.fxml";
 	private final String	ADMIN_HOME				= "/View/AdminHome.fxml";
 	private final String	ADMIN_ADD				= "/View/ADMIN_ADD.fxml";
@@ -578,6 +584,21 @@ public class Controller {
 			} catch(Exception e) {}
 		}
 		
+		if(newScene.equals(ADMIN_POSSESSIONDIAGRAM)) {
+			try {
+				
+				//set up graphics??
+				possCP.setValue(Color.BLACK);
+				possGC = PossessionDiagramCanvas.getGraphicsContext2D();
+				possGC.setLineWidth(7);
+				possGC.setStroke(possCP.getValue());
+				possGC.setFill(possCP.getValue());
+				possGC.setFont(new Font("Verdana", 24));
+				
+			} catch(Exception e) {}
+
+		}
+		
 		if(newScene.equals(SHOT_CHART)) {
 			
 			//gets all the info for each combo box
@@ -934,7 +955,14 @@ public class Controller {
 		loadScene(ADMIN_SCORINGCHANCES);
 	}
 
-
+	/**
+	 * This is the method that will go to the possession diagram scene.
+	 */
+	@FXML
+	public void PossessionDiagramClicked() {
+		loadScene(ADMIN_POSSESSIONDIAGRAM);
+	}
+	
 	/**
 	 * This is the method that will go to the rink diagram scene.
 	 */
