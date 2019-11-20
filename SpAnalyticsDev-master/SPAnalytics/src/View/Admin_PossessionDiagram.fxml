@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="1280.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <AnchorPane layoutX="403.0" layoutY="14.0" prefHeight="112.0" prefWidth="313.0">
+               <children>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="111.0" layoutY="71.0" onAction="#StopTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Stop" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutY="71.0" onMouseClicked="#StartTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Start" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="224.0" layoutY="71.0" onAction="#ResetTimerClicked" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <Label fx:id="Time" alignment="CENTER" layoutY="12.0" prefHeight="50.0" prefWidth="210.0" text="20:00 1st" textFill="WHITE">
+                     <font>
+                        <Font size="33.0" />
+                     </font>
+                  </Label>
+                  <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="223.0" layoutY="10.0" onAction="#NextPeriodClicked" prefHeight="52.0" prefWidth="101.0" style="-fx-background-color: #C42134;" text="Next Period" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+            <ComboBox fx:id="GamePicker" layoutX="170.0" layoutY="56.0" prefHeight="31.0" prefWidth="186.0" promptText="Select Game" style="-fx-background-color: white;" />
+            <Text fill="WHITE" layoutX="173.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="CENTER" wrappingWidth="180.703125">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+            <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="14.0" layoutY="14.0" onAction="#goBack" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Back" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton alignment="CENTER" buttonType="RAISED" layoutX="1166.0" layoutY="14.0" prefHeight="31.0" prefWidth="100.0" style="-fx-background-color: #C42134;" text="Save All" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="88.0" layoutX="1020.0" layoutY="52.0" stroke="WHITE" strokeType="INSIDE" width="246.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="88.0" layoutX="1020.0" layoutY="148.0" stroke="WHITE" strokeType="INSIDE" width="246.0" />
+            <Text fill="WHITE" layoutX="1076.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offensive Zone : " />
+            <Text fill="WHITE" layoutX="1076.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neutral Zone :" />
+            <Text fill="WHITE" layoutX="1077.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defensive Zone :" />
+            <Text fill="WHITE" layoutX="1077.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :" />
+            <Text fill="WHITE" layoutX="1076.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Offensive Zone : " />
+            <Text fill="WHITE" layoutX="1076.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Neutral Zone :" />
+            <Text fill="WHITE" layoutX="1077.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Defensive Zone :" />
+            <Text fill="WHITE" layoutX="1077.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total :" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="1029.0" layoutY="76.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="41.0" layoutX="1029.0" layoutY="175.0" stroke="BLACK" strokeType="INSIDE" width="41.0" />
+         </children></AnchorPane>
+   </top>
+   <bottom>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="398.0" fitWidth="854.0" layoutX="8.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Images/rink.png" />
+               </image>
+            </ImageView>
+            <TextArea layoutX="941.0" layoutY="51.0" prefHeight="413.0" prefWidth="325.0" />
+            <TextField layoutX="941.0" layoutY="26.0" prefHeight="25.0" prefWidth="325.0" text="    Period           Time Stamp           Team            Player #" />
+            <Line endX="-62.0" endY="379.0" layoutX="1078.0" layoutY="91.0" startX="-62.0" startY="-79.0" />
+            <Line endX="94.0" endY="363.0" layoutX="1088.0" layoutY="101.0" startX="94.0" startY="-82.0" />
+            <Line endX="25.0" endY="365.29290771484375" layoutX="1088.0" layoutY="101.0" startX="25.0" startY="-75.0" />
+            <ComboBox fx:id="GamePicker1" layoutX="47.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="GamePicker2" layoutX="216.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="GamePicker21" layoutX="603.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="GamePicker22" layoutX="436.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>
