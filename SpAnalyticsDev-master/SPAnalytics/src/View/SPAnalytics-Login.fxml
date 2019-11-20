@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1440.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="810.0" prefWidth="1440.0" style="-fx-background-color: Black;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="195.0" fitWidth="273.0" layoutX="429.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="243.0" fitWidth="206.0" layoutX="416.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Images/miami-dark.jpg" />
+                  <Image url="@../Images/SPLogo.jpg" />
                </image>
             </ImageView>
             <Label layoutX="668.0" layoutY="187.0" prefHeight="92.0" prefWidth="318.0" text="SP Analytics" textFill="WHITE">
