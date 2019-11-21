@@ -40,6 +40,11 @@
                </font>
             </JFXButton>
             <TextField fx:id="databaseKey" layoutX="320.0" layoutY="172.0" prefHeight="28.0" prefWidth="250.0" promptText="Enter Key" style="-fx-background-color: BLACK;" />
+            <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="376.0" layoutY="295.0" onAction="#closeApplication" prefHeight="40.0" prefWidth="139.0" style="-fx-background-color: #C42134;" text="Exit" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
    </center>

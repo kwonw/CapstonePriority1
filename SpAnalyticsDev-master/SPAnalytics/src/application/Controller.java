@@ -101,8 +101,7 @@ public class Controller {
 	private ComboBox<String>		users;
 	@FXML
 	private PasswordField			adminPass;
-//	@FXML
-//	public Button 					exitButton; // soon to be implemented exit button
+
 
 	//Player/Goalie card variables
 	@FXML ComboBox GamePicker;
@@ -119,6 +118,8 @@ public class Controller {
 	private JFXButton			keySubmit;
 	@FXML
 	private TextField			databaseKey;
+	@FXML
+	private JFXButton			exitButton;
 
 	//Scoring Chances vars
 	@FXML private Canvas AwaySCCanvas;
@@ -171,33 +172,44 @@ public class Controller {
 	//Text Field
 	@FXML private TextField urlTextField;
 	
-	@FXML private CheckBox heatMap;
+	//Checkboxes in shot chart
+	@FXML private CheckBox heatMapHome;
+	@FXML private CheckBox heatMapAway;
 	
-	//Canvases / Regions
+	//Regions Home
 	//	Top row naming convention: canvas[column][row]
-	@FXML private Canvas canvas00;
-	@FXML private Canvas canvas10;
-	@FXML private Canvas canvas20;
 	@FXML private Region region00;
 	@FXML private Region region10;
 	@FXML private Region region20;
-	private int[][] regionCounts = new int[3][3];
+	private int[][] regionCountsHome = new int[3][3];
 	
 	//	Middle Row 
-	@FXML private Canvas canvas01;
-	@FXML private Canvas canvas11;
-	@FXML private Canvas canvas21;
 	@FXML private Region region01;
 	@FXML private Region region11;
 	@FXML private Region region21;
 	
 	//	Bottom Row
-	@FXML private Canvas canvas02;
-	@FXML private Canvas canvas12;
-	@FXML private Canvas canvas22;
 	@FXML private Region region02;
 	@FXML private Region region12;
 	@FXML private Region region22;
+	
+	//Regions Away
+	//	Top row naming convention: canvas[column][row]
+	@FXML private Region region001;
+	@FXML private Region region101;
+	@FXML private Region region201;
+	private int[][] regionCountsAway = new int[3][3];
+	
+	//	Middle Row 
+	@FXML private Region region011;
+	@FXML private Region region111;
+	@FXML private Region region211;
+	
+	//	Bottom Row
+	@FXML private Region region021;
+	@FXML private Region region121;
+	@FXML private Region region221;
+	
 	
 	private ArrayList<DrawnObject> homeNetChartItems = new ArrayList<DrawnObject>();
 	private int homeNetChartIndex = 0;
@@ -325,11 +337,11 @@ public class Controller {
 	/**
 	 * Method that will close the application when the Exit button is clicked 
 	 */
-//	@FXML
-//	public void handleCloseButtonAction(ActionEvent event) {
-//	    Stage stage = (Stage) exitButton .getScene().getWindow();
-//	    stage.close();
-//	}
+	@FXML
+	public void closeApplication(ActionEvent event) {
+	    Stage stage = (Stage) exitButton.getScene().getWindow();
+	    stage.close();
+	}
 
 	/**
 	 * Helper method that will load scene
@@ -643,11 +655,11 @@ public class Controller {
 			homeNetChartItems = new ArrayList<DrawnObject>();
 			homeNetChartIndex = 0;
 
-//			awayGC = AwayNetChartCanvas.getGraphicsContext2D();
-//			awayGC.setStroke(Color.color(.77, .13, .2));
-//			awayGC.setLineWidth(7);
-//			awayNetChartItems = new ArrayList<DrawnObject>();
-//			awayNetChartIndex = 0;
+			awayGC = AwayNetChartCanvas.getGraphicsContext2D();
+			awayGC.setStroke(Color.color(.77, .13, .2));
+			awayGC.setLineWidth(7);
+			awayNetChartItems = new ArrayList<DrawnObject>();
+			awayNetChartIndex = 0;
 			ovalWidth = 30;
 			initializeDropdowns();
 		}	
@@ -731,7 +743,8 @@ public class Controller {
 				"5v3","3v5","4v3","3v4","6v5","5v6","6v4","4v6","6v3","3v6");
 		statusCombo.getItems().addAll(
 				"Goal",
-				"No Goal");
+				"No Goal",
+				"Misses");
 		scoringChanceCombo.getItems().addAll(
 				"Yes",
 				"No");
@@ -739,38 +752,102 @@ public class Controller {
 	
 	/**
 	 * Generates the heat map by coloring different section of the net image 
+	 * @param e the event that triggered the method
 	 */
-	public void generateHeatMap(MouseEvent e) {
+	public void generateHeatMapHome(MouseEvent e) {
 		
-		region00.setStyle("-fx-background-color: RED");
-		Color col = Color.WHITE;		
-		int count = regionCounts[0][0];
-		
-		region00.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[1][0];
-		region10.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		if (!heatMapHome.isSelected()) {
+			Color col = Color.WHITE;
+			int count = regionCountsHome[0][0];
 
-		count = regionCounts[2][0];
-		region20.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[0][1];
-		region01.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[1][1];
-		region11.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[2][1];
-		region21.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[0][2];
-		region02.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[1][2];
-		region12.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
-		
-		count = regionCounts[2][2];
-		region22.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+			region00.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[1][0];
+			region10.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[2][0];
+			region20.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[0][1];
+			region01.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[1][1];
+			region11.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[2][1];
+			region21.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[0][2];
+			region02.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[1][2];
+			region12.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsHome[2][2];
+			region22.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		} else {
+			Color col = Color.WHITE;
+			int count = regionCountsHome[0][0];
+			region00.setStyle("; -fx-opacity: .0;");
+			region10.setStyle("; -fx-opacity: .0;");
+			region20.setStyle("; -fx-opacity: .0;");
+			region01.setStyle("; -fx-opacity: .0;");
+			region11.setStyle("; -fx-opacity: .0;");
+			region21.setStyle("; -fx-opacity: .0;");
+			region02.setStyle("; -fx-opacity: .0;");
+			region12.setStyle("; -fx-opacity: .0;");
+			region22.setStyle("; -fx-opacity: .0;");
+		}
+	}
+	
+	/**
+	 * Generates the heat map for the Away tab Net image 
+	 * @param e the event that triggered the method
+	 */
+	public void generateHeatMapAway(MouseEvent e) {
+
+		if (!heatMapAway.isSelected()) {
+			Color col = Color.WHITE;
+			int count = regionCountsAway[0][0];
+
+			region001.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[1][0];
+			region101.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[2][0];
+			region201.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[0][1];
+			region011.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[1][1];
+			region111.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[2][1];
+			region211.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[0][2];
+			region021.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[1][2];
+			region121.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+			count = regionCountsAway[2][2];
+			region221.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+		} else {
+			int count = regionCountsHome[0][0];
+			region001.setStyle("; -fx-opacity: .0;");
+			region101.setStyle("; -fx-opacity: .0;");
+			region201.setStyle("; -fx-opacity: .0;");
+			region011.setStyle("; -fx-opacity: .0;");
+			region111.setStyle("; -fx-opacity: .0;");
+			region211.setStyle("; -fx-opacity: .0;");
+			region021.setStyle("; -fx-opacity: .0;");
+			region121.setStyle("; -fx-opacity: .0;");
+			region221.setStyle("; -fx-opacity: .0;");
+		}
 	}
 	
 	private String setRegionColors(int count) {
@@ -1153,38 +1230,70 @@ public class Controller {
 		
 		if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("Goal")) {
 			homeGC.setStroke(Color.GREEN);
-		} else {
+			awayGC.setStroke(Color.GREEN);
+		} else if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("No Goal")) {
 			homeGC.setStroke(Color.RED);
+			awayGC.setStroke(Color.RED);
+		} else {
+			homeGC.setStroke(Color.BLACK);
+			awayGC.setStroke(Color.BLACK);
 		}
 		
 		String region = ((Node) e.getSource()).getId();
 		
-		if (region.contentEquals("region00")) {
-			regionCounts[0][0]++;
+		if (region.equals("region00")) {
+			regionCountsHome[0][0]++;
 		}
-		if (region.contentEquals("region10")) {
-			regionCounts[1][0]++;
+		if (region.equals("region10")) {
+			regionCountsHome[1][0]++;
 		}
-		if (region.contentEquals("region20")) {
-			regionCounts[2][0]++;
+		if (region.equals("region20")) {
+			regionCountsHome[2][0]++;
 		}
-		if (region.contentEquals("region01")) {
-			regionCounts[0][1]++;
+		if (region.equals("region01")) {
+			regionCountsHome[0][1]++;
 		}
-		if (region.contentEquals("region11")) {
-			regionCounts[1][1]++;
+		if (region.equals("region11")) {
+			regionCountsHome[1][1]++;
 		}
-		if (region.contentEquals("region21")) {
-			regionCounts[2][1]++;
+		if (region.equals("region21")) {
+			regionCountsHome[2][1]++;
 		}
-		if (region.contentEquals("region02")) {
-			regionCounts[0][2]++;
+		if (region.equals("region02")) {
+			regionCountsHome[0][2]++;
 		}
-		if (region.contentEquals("region12")) {
-			regionCounts[1][2]++;
+		if (region.equals("region12")) {
+			regionCountsHome[1][2]++;
 		}
-		if (region.contentEquals("region22")) {
-			regionCounts[2][2]++;
+		if (region.equals("region22")) {
+			regionCountsHome[2][2]++;
+		}
+		if (region.equals("region001")) {
+			regionCountsAway[0][0]++;
+		}
+		if (region.equals("region101")) {
+			regionCountsAway[1][0]++;
+		}
+		if (region.equals("region201")) {
+			regionCountsAway[2][0]++;
+		}
+		if (region.equals("region011")) {
+			regionCountsAway[0][1]++;
+		}
+		if (region.equals("region111")) {
+			regionCountsAway[1][1]++;
+		}
+		if (region.equals("region211")) {
+			regionCountsAway[2][1]++;
+		}
+		if (region.equals("region021")) {
+			regionCountsAway[0][2]++;
+		}
+		if (region.equals("region121")) {
+			regionCountsAway[1][2]++;
+		}
+		if (region.equals("region221")) {
+			regionCountsAway[2][2]++;
 		}
 			
 		
