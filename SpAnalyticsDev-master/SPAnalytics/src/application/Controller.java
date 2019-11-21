@@ -42,6 +42,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -51,7 +52,9 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.transform.Scale;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ComboBoxBase;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -76,6 +79,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 import javafx.scene.paint.Color;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -145,7 +149,7 @@ public class Controller {
 	@FXML private ColorPicker possCP;
 	private GraphicsContext possGC;
 	
-	//Shot Chart variables 
+	//Shot Chart variables: Dropdowns
 	@FXML private ComboBox<String> teamForCombo;
 	@FXML private ComboBox<String> teamAgainstCombo;
 	@FXML private ComboBox<String> playerCombo;
@@ -155,7 +159,6 @@ public class Controller {
 	@FXML private ComboBox<String> rbCombo;
 	@FXML private ComboBox<String> goalieCombo;
 	@FXML private ComboBox<String> extraInfoCombo;
-	
 	@FXML private ComboBox<String> playTypeCombo;
 	@FXML private ComboBox<String> playerStatusCombo;
 	@FXML private ComboBox<String> releaseTypeCombo;
@@ -164,8 +167,38 @@ public class Controller {
 	@FXML private ComboBox<String> createdByCombo;
 	@FXML private ComboBox<String> resultCombo;
 	@FXML private ComboBox<String> scoringChanceCombo;
+	
+	//Text Field
 	@FXML private TextField urlTextField;
-
+	
+	@FXML private CheckBox heatMap;
+	
+	//Canvases / Regions
+	//	Top row naming convention: canvas[column][row]
+	@FXML private Canvas canvas00;
+	@FXML private Canvas canvas10;
+	@FXML private Canvas canvas20;
+	@FXML private Region region00;
+	@FXML private Region region10;
+	@FXML private Region region20;
+	private int[][] regionCounts = new int[3][3];
+	
+	//	Middle Row 
+	@FXML private Canvas canvas01;
+	@FXML private Canvas canvas11;
+	@FXML private Canvas canvas21;
+	@FXML private Region region01;
+	@FXML private Region region11;
+	@FXML private Region region21;
+	
+	//	Bottom Row
+	@FXML private Canvas canvas02;
+	@FXML private Canvas canvas12;
+	@FXML private Canvas canvas22;
+	@FXML private Region region02;
+	@FXML private Region region12;
+	@FXML private Region region22;
+	
 	private ArrayList<DrawnObject> homeNetChartItems = new ArrayList<DrawnObject>();
 	private int homeNetChartIndex = 0;
 	private ArrayList<DrawnObject> awayNetChartItems = new ArrayList<DrawnObject>();
@@ -703,6 +736,58 @@ public class Controller {
 				"Yes",
 				"No");
 	}//end of initializeDropdowns()
+	
+	/**
+	 * Generates the heat map by coloring different section of the net image 
+	 */
+	public void generateHeatMap(MouseEvent e) {
+		
+		region00.setStyle("-fx-background-color: RED");
+		Color col = Color.WHITE;		
+		int count = regionCounts[0][0];
+		
+		region00.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[1][0];
+		region10.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+
+		count = regionCounts[2][0];
+		region20.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[0][1];
+		region01.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[1][1];
+		region11.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[2][1];
+		region21.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[0][2];
+		region02.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[1][2];
+		region12.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+		
+		count = regionCounts[2][2];
+		region22.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
+	}
+	
+	private String setRegionColors(int count) {
+		
+		if(6 >= count && count >= 1)
+			return "GREEN";
+		if(12 >= count && count > 6)
+			return "GREENYELLOW";
+		if(18 >= count && count > 12)
+			return "YELLOW";
+		if(24 >= count && count > 18)
+			return "ORANGE";
+		if(count > 24)
+			return "RED";
+		return "WHITE";
+		
+	}
 		
 	/**
 	 * Helper method to copy rink diagram from Clip object to the drawList
@@ -1065,8 +1150,46 @@ public class Controller {
 	@FXML
 	public void drawCircle(MouseEvent e) {
 		//set a home circle
-		if(netChartCanvas == HomeNetChartCanvas) {
+		
+		if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("Goal")) {
+			homeGC.setStroke(Color.GREEN);
+		} else {
+			homeGC.setStroke(Color.RED);
+		}
+		
+		String region = ((Node) e.getSource()).getId();
+		
+		if (region.contentEquals("region00")) {
+			regionCounts[0][0]++;
+		}
+		if (region.contentEquals("region10")) {
+			regionCounts[1][0]++;
+		}
+		if (region.contentEquals("region20")) {
+			regionCounts[2][0]++;
+		}
+		if (region.contentEquals("region01")) {
+			regionCounts[0][1]++;
+		}
+		if (region.contentEquals("region11")) {
+			regionCounts[1][1]++;
+		}
+		if (region.contentEquals("region21")) {
+			regionCounts[2][1]++;
+		}
+		if (region.contentEquals("region02")) {
+			regionCounts[0][2]++;
+		}
+		if (region.contentEquals("region12")) {
+			regionCounts[1][2]++;
+		}
+		if (region.contentEquals("region22")) {
+			regionCounts[2][2]++;
+		}
 			
+		
+		if(netChartCanvas == HomeNetChartCanvas) {
+						
 			System.out.println(e.getY());
 			//System.out.println("HOME GC WHATEVER: " + homeGC.toString());// This gives me the error
 			System.out.println("OVAL WIDTH" +  ovalWidth); //ovalWidth is 0 
@@ -1099,6 +1222,7 @@ public class Controller {
 			DrawnObject number = new DrawnObject(p2, p1.getColor(), 0, ""+awayNetChartIndex);
 			awayNetChartItems.add(number);
 		}
+	
 	}
 
 	/**
