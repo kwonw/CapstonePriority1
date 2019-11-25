@@ -1,0 +1,13 @@
+Todo List:
+- Priority 1:
+	- Heat chart needs to be cleared after back/logout
+	- Adding things to database 
+	- Adding numbers to Net Diagram 
+		- Center Rectangle Measurements
+		- Top Left: 1151.0, 678.0
+		- Top Right: 1436.0, 678.0
+		- Bottom Right: 1436.0, 851.0
+		- Bottom Left: 1151.0, 851. 0
+- Priority 2:
+	- Table/ Text areas 
+	- 

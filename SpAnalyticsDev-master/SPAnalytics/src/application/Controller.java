@@ -169,12 +169,25 @@ public class Controller {
 	@FXML private ComboBox<String> resultCombo;
 	@FXML private ComboBox<String> scoringChanceCombo;
 	
+
+	
 	//Text Field
 	@FXML private TextField urlTextField;
 	
 	//Checkboxes in shot chart
 	@FXML private CheckBox heatMapHome;
 	@FXML private CheckBox heatMapAway;
+	
+	//Canvases and Graphics contexts 
+	@FXML private Canvas HomeHeatMapCanvas;
+	@FXML private Canvas AwayHeatMapCanvas;
+	private GraphicsContext awayHeatGC;
+	private GraphicsContext homeHeatGC;
+	private ArrayList<DrawnObject> homeHeatItems = new ArrayList<DrawnObject>();
+	private int homeHeatIndex = 0;
+	private ArrayList<DrawnObject> awayHeatItems = new ArrayList<DrawnObject>();
+	private int awayHeatIndex = 0;
+	
 	
 	//Regions Home
 	//	Top row naming convention: canvas[column][row]
@@ -631,8 +644,10 @@ public class Controller {
 		
 		if(newScene.equals(ADMIN_POSSESSIONDIAGRAM)) {
 			try {
+				//add games to picker dropdown
+				GamePicker.getItems().addAll(m.getGameStats());
 				
-				//set up graphics??
+				//set up graphics?? Do you guys want some help? We've already done similar stuff -Matthew 
 				possCP.setValue(Color.BLACK);
 				possGC = PossessionDiagramCanvas.getGraphicsContext2D();
 				possGC.setLineWidth(7);
@@ -649,6 +664,18 @@ public class Controller {
 			//gets all the info for each combo box
 			netChartCanvas = HomeNetChartCanvas;
 			
+			homeHeatGC = HomeHeatMapCanvas.getGraphicsContext2D();
+			homeHeatGC.setStroke(Color.color(.77, .13, .2));
+			homeHeatGC.setLineWidth(7);
+			homeHeatItems = new ArrayList<DrawnObject>();
+			homeHeatIndex = 0;
+			
+			awayHeatGC = AwayHeatMapCanvas.getGraphicsContext2D();
+			awayHeatGC.setStroke(Color.color(.77, .13, .2));
+			awayHeatGC.setLineWidth(7);
+			awayHeatItems = new ArrayList<DrawnObject>();
+			awayHeatIndex = 0;
+			
 			homeGC = HomeNetChartCanvas.getGraphicsContext2D();
 			homeGC.setStroke(Color.color(.77, .13, .2));
 			homeGC.setLineWidth(7);
@@ -664,6 +691,134 @@ public class Controller {
 			initializeDropdowns();
 		}	
 	}// end of loadScene Method 
+	
+	public void homeHeatMapClicked(MouseEvent e) {
+		System.out.println("CANVAS ACTIVATES");
+		System.out.println(e.getSceneX() + ", " + e.getSceneY());
+		
+		Color col = Color.WHITE;
+		int count = regionCountsHome[0][0];
+		
+		if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("Goal")) {
+			homeHeatGC.setStroke(Color.GREEN);
+		} else if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("No Goal")) {
+			homeHeatGC.setStroke(Color.RED);
+		} else {
+			homeHeatGC.setStroke(Color.BLACK);
+		}
+		
+		//draw the circle
+		Point p1 = new Point(e.getX()-(ovalWidth/2), e.getY()-(ovalWidth/2), homeHeatGC.getStroke());
+		homeHeatGC.strokeOval(p1.getX(), p1.getY(), ovalWidth, ovalWidth);
+		DrawnObject oval = new DrawnObject(p1, p1.getColor(), ovalWidth);
+		homeHeatItems.add(oval);
+
+		//draw the number of the shot (with offset to be in center of circle
+		int xOff = 2*(int)(Math.log10(Math.max(1, homeHeatIndex))+1);
+		Point p2 = new Point(e.getX()-(3+xOff), e.getY()+5, homeHeatGC.getFill());
+		homeHeatGC.fillText(""+ ++homeHeatIndex, p2.getX(), p2.getY());
+		DrawnObject number = new DrawnObject(p2, p1.getColor(), 0, ""+homeHeatIndex);
+		homeHeatItems.add(number);
+		
+		double xCoord = e.getSceneX(), yCoord = e.getSceneY();
+
+		//Top Row
+		if (xCoord < 1151.0 && yCoord < 678.0) {
+			regionCountsHome[0][0]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord < 678.0) {
+			regionCountsHome[1][0]++;
+		}
+		if (xCoord > 1436.0 && yCoord < 678.0) {
+			regionCountsHome[2][0]++;
+		}
+		
+		//Middle Row
+		if (xCoord < 1151.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsHome[0][1]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsHome[1][1]++;
+		}
+		if (xCoord >1436.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsHome[2][1]++;
+		}
+		
+		//Bottom Row
+		if (xCoord < 1151.0 && yCoord > 851.0) {
+			regionCountsHome[0][2]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord > 851.0) {
+			regionCountsHome[1][2]++;
+		}
+		if (xCoord > 1436.0 && yCoord > 851.0) {
+			regionCountsHome[2][2]++;
+		}
+
+	}
+	
+	public void awayHeatMapClicked(MouseEvent e) {
+	
+		Color col = Color.WHITE;
+		int count = regionCountsAway[0][0];
+		
+		if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("Goal")) {
+			awayHeatGC.setStroke(Color.GREEN);
+		} else if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("No Goal")) {
+			awayHeatGC.setStroke(Color.RED);
+		} else {
+			awayHeatGC.setStroke(Color.BLACK);
+		}
+		
+		//draw the circle
+		Point p1 = new Point(e.getX()-(ovalWidth/2), e.getY()-(ovalWidth/2), awayHeatGC.getStroke());
+		awayHeatGC.strokeOval(p1.getX(), p1.getY(), ovalWidth, ovalWidth);
+		DrawnObject oval = new DrawnObject(p1, p1.getColor(), ovalWidth);
+		awayHeatItems.add(oval);
+
+		//draw the number of the shot (with offset to be in center of circle
+		int xOff = 2*(int)(Math.log10(Math.max(1, awayHeatIndex))+1);
+		Point p2 = new Point(e.getX()-(3+xOff), e.getY()+5, awayHeatGC.getFill());
+		awayHeatGC.fillText(""+ ++awayHeatIndex, p2.getX(), p2.getY());
+		DrawnObject number = new DrawnObject(p2, p1.getColor(), 0, ""+awayHeatIndex);
+		awayHeatItems.add(number);
+		
+		double xCoord = e.getSceneX(), yCoord = e.getSceneY();
+
+		//Top Row
+		if (xCoord < 1151.0 && yCoord < 678.0) {
+			regionCountsAway[0][0]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord < 678.0) {
+			regionCountsAway[1][0]++;
+		}
+		if (xCoord > 1436.0 && yCoord < 678.0) {
+			regionCountsAway[2][0]++;
+		}
+		
+		//Middle Row
+		if (xCoord < 1151.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsAway[0][1]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsAway[1][1]++;
+		}
+		if (xCoord >1436.0 && yCoord > 678.0 && yCoord < 851.0) {
+			regionCountsAway[2][1]++;
+		}
+		
+		//Bottom Row
+		if (xCoord < 1151.0 && yCoord > 851.0) {
+			regionCountsAway[0][2]++;
+		}
+		if (xCoord > 1151.0 && xCoord < 1436.0 && yCoord > 851.0) {
+			regionCountsAway[1][2]++;
+		}
+		if (xCoord > 1436.0 && yCoord > 851.0) {
+			regionCountsAway[2][2]++;
+		}
+
+	}
 
 	public void initializeDropdowns() {
 		//gets all the info for each combo box
@@ -757,6 +912,7 @@ public class Controller {
 	public void generateHeatMapHome(MouseEvent e) {
 		
 		if (!heatMapHome.isSelected()) {
+			HomeHeatMapCanvas.setVisible(false);
 			Color col = Color.WHITE;
 			int count = regionCountsHome[0][0];
 
@@ -786,6 +942,7 @@ public class Controller {
 			count = regionCountsHome[2][2];
 			region22.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
 		} else {
+			HomeHeatMapCanvas.setVisible(true);
 			Color col = Color.WHITE;
 			int count = regionCountsHome[0][0];
 			region00.setStyle("; -fx-opacity: .0;");
@@ -807,6 +964,7 @@ public class Controller {
 	public void generateHeatMapAway(MouseEvent e) {
 
 		if (!heatMapAway.isSelected()) {
+			AwayHeatMapCanvas.setVisible(false);
 			Color col = Color.WHITE;
 			int count = regionCountsAway[0][0];
 
@@ -837,6 +995,7 @@ public class Controller {
 			region221.setStyle("-fx-background-color: " + setRegionColors(count) + "; -fx-opacity: .3;");
 
 		} else {
+			AwayHeatMapCanvas.setVisible(true);
 			int count = regionCountsHome[0][0];
 			region001.setStyle("; -fx-opacity: .0;");
 			region101.setStyle("; -fx-opacity: .0;");
@@ -1226,7 +1385,7 @@ public class Controller {
 	 */
 	@FXML
 	public void drawCircle(MouseEvent e) {
-		//set a home circle
+		//set a home circle	
 		
 		if(statusCombo.getValue() != null && statusCombo.getValue().contentEquals("Goal")) {
 			homeGC.setStroke(Color.GREEN);
@@ -1238,64 +1397,6 @@ public class Controller {
 			homeGC.setStroke(Color.BLACK);
 			awayGC.setStroke(Color.BLACK);
 		}
-		
-		String region = ((Node) e.getSource()).getId();
-		
-		if (region.equals("region00")) {
-			regionCountsHome[0][0]++;
-		}
-		if (region.equals("region10")) {
-			regionCountsHome[1][0]++;
-		}
-		if (region.equals("region20")) {
-			regionCountsHome[2][0]++;
-		}
-		if (region.equals("region01")) {
-			regionCountsHome[0][1]++;
-		}
-		if (region.equals("region11")) {
-			regionCountsHome[1][1]++;
-		}
-		if (region.equals("region21")) {
-			regionCountsHome[2][1]++;
-		}
-		if (region.equals("region02")) {
-			regionCountsHome[0][2]++;
-		}
-		if (region.equals("region12")) {
-			regionCountsHome[1][2]++;
-		}
-		if (region.equals("region22")) {
-			regionCountsHome[2][2]++;
-		}
-		if (region.equals("region001")) {
-			regionCountsAway[0][0]++;
-		}
-		if (region.equals("region101")) {
-			regionCountsAway[1][0]++;
-		}
-		if (region.equals("region201")) {
-			regionCountsAway[2][0]++;
-		}
-		if (region.equals("region011")) {
-			regionCountsAway[0][1]++;
-		}
-		if (region.equals("region111")) {
-			regionCountsAway[1][1]++;
-		}
-		if (region.equals("region211")) {
-			regionCountsAway[2][1]++;
-		}
-		if (region.equals("region021")) {
-			regionCountsAway[0][2]++;
-		}
-		if (region.equals("region121")) {
-			regionCountsAway[1][2]++;
-		}
-		if (region.equals("region221")) {
-			regionCountsAway[2][2]++;
-		}
-			
 		
 		if(netChartCanvas == HomeNetChartCanvas) {
 						

@@ -61,15 +61,15 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Region fx:id="region00" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" />
-                                    <Region fx:id="region10" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                                    <Region fx:id="region20" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-                                    <Region fx:id="region01" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                                    <Region fx:id="region11" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Region fx:id="region21" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                    <Region fx:id="region02" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                                    <Region fx:id="region12" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Region fx:id="region22" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Region fx:id="region00" prefHeight="200.0" prefWidth="200.0" />
+                                    <Region fx:id="region10" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                    <Region fx:id="region20" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                                    <Region fx:id="region01" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <Region fx:id="region11" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Region fx:id="region21" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Region fx:id="region02" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                                    <Region fx:id="region12" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Region fx:id="region22" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <Canvas fx:id="HomeNetChartCanvas" height="347.0" layoutX="79.0" layoutY="32.0" onMousePressed="#drawCircle" width="394.0" />
@@ -78,6 +78,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </CheckBox>
+                              <Canvas fx:id="HomeHeatMapCanvas" height="348.0" layoutX="510.0" layoutY="33.0" onMousePressed="#homeHeatMapClicked" width="567.0" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -118,15 +119,15 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                                  <children>
-                                    <Region fx:id="region001" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" />
-                                    <Region fx:id="region101" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-                                    <Region fx:id="region201" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
-                                    <Region fx:id="region011" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
-                                    <Region fx:id="region111" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <Region fx:id="region211" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                                    <Region fx:id="region021" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                                    <Region fx:id="region121" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <Region fx:id="region221" onMousePressed="#drawCircle" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                    <Region fx:id="region001" prefHeight="200.0" prefWidth="200.0" />
+                                    <Region fx:id="region101" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+                                    <Region fx:id="region201" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+                                    <Region fx:id="region011" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                    <Region fx:id="region111" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <Region fx:id="region211" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                    <Region fx:id="region021" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                                    <Region fx:id="region121" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <Region fx:id="region221" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <Canvas fx:id="AwayNetChartCanvas" height="347.0" layoutX="78.0" layoutY="34.0" onMousePressed="#drawCircle" width="394.0" />
@@ -135,6 +136,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </CheckBox>
+                              <Canvas fx:id="AwayHeatMapCanvas" height="348.0" layoutX="510.0" layoutY="33.0" width="567.0" onMousePressed="#awayHeatMapClicked"/>
                            </children>
                         </AnchorPane>
                   </content>
