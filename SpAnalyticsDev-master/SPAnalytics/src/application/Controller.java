@@ -149,6 +149,11 @@ public class Controller {
 	@FXML private Canvas PossessionDiagramCanvas;
 	@FXML private ColorPicker possCP;
 	private GraphicsContext possGC;
+	@FXML ComboBox GamePickerPoss;
+	@FXML ComboBox homeCombo1;
+	@FXML ComboBox awayCombo1;
+	@FXML ComboBox awayCombo2;
+	@FXML ComboBox homeCombo2;
 	
 	//Shot Chart variables: Dropdowns
 	@FXML private ComboBox<String> teamForCombo;
