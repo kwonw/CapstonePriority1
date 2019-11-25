@@ -645,7 +645,7 @@ public class Controller {
 		if(newScene.equals(ADMIN_POSSESSIONDIAGRAM)) {
 			try {
 				//add games to picker dropdown
-				GamePicker.getItems().addAll(m.getGameStats());
+				initializePossDropdowns();
 				
 				//set up graphics?? Do you guys want some help? We've already done similar stuff -Matthew 
 				possCP.setValue(Color.BLACK);
@@ -818,6 +818,55 @@ public class Controller {
 			regionCountsAway[2][2]++;
 		}
 
+	}
+	
+	public void initializePossDropdowns() {
+		GamePickerPoss.getItems().addAll(
+				"UConn 02-05-2019",
+				"UMD 01-26-2019",
+				"UMD 01-27-2019",
+				"Michigan 01-02-2019"
+				);
+		homeCombo1.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
+		awayCombo1.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
+		homeCombo2.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
+		awayCombo2.getItems().addAll(
+				"CC",
+				"Denver",
+				"Miami",
+				"UMD",
+				"UND",
+				"UNO",
+				"SCSU",
+				"WMU",
+				"Other");
 	}
 
 	public void initializeDropdowns() {
