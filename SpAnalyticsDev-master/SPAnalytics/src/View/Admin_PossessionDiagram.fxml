@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -47,7 +48,7 @@
                   </JFXButton>
                </children>
             </AnchorPane>
-            <ComboBox fx:id="GamePicker" layoutX="170.0" layoutY="56.0" prefHeight="31.0" prefWidth="186.0" promptText="Select Game" style="-fx-background-color: white;" />
+            <ComboBox fx:id="GamePickerPoss" layoutX="170.0" layoutY="56.0" prefHeight="31.0" prefWidth="186.0" promptText="Select Game" style="-fx-background-color: white;" />
             <Text fill="WHITE" layoutX="173.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Games" textAlignment="CENTER" wrappingWidth="180.703125">
                <font>
                   <Font size="18.0" />
@@ -90,10 +91,14 @@
             <Line endX="-62.0" endY="379.0" layoutX="1078.0" layoutY="91.0" startX="-62.0" startY="-79.0" />
             <Line endX="94.0" endY="363.0" layoutX="1088.0" layoutY="101.0" startX="94.0" startY="-82.0" />
             <Line endX="25.0" endY="365.29290771484375" layoutX="1088.0" layoutY="101.0" startX="25.0" startY="-75.0" />
-            <ComboBox fx:id="GamePicker1" layoutX="47.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
-            <ComboBox fx:id="GamePicker2" layoutX="216.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
-            <ComboBox fx:id="GamePicker21" layoutX="603.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
-            <ComboBox fx:id="GamePicker22" layoutX="436.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="homeCombo1" layoutX="47.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="awayCombo1" layoutX="216.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="awayCombo2" layoutX="603.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Defensive Team" style="-fx-background-color: white;" />
+            <ComboBox fx:id="homeCombo2" layoutX="436.0" layoutY="23.0" prefHeight="31.0" prefWidth="155.0" promptText="Offensive Team" style="-fx-background-color: white;" />
+            <Button layoutX="94.0" layoutY="141.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="98.0" text="Offense" />
+            <Button layoutX="617.0" layoutY="317.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="98.0" text="Offense" />
+            <Button layoutX="94.0" layoutY="316.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="98.0" text="Defense" />
+            <Button layoutX="617.0" layoutY="141.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="98.0" text="Defense" />
          </children>
       </AnchorPane>
    </bottom>
